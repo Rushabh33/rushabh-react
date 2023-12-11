@@ -1,0 +1,42 @@
+.login_page {
+    height: 100vh;
+    width: 100vw;
+}
+
+.login_container {
+    max-width: 466px;
+    margin: 75px auto 32px;
+    padding: 56px;
+    background: #fff;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.20);
+    border-radius: 10px;
+}
+
+.login_logo {
+    margin-bottom: 40px;
+}
+
+.login_title {
+    font-size: 30px;
+    margin: 0 0 32px;
+    line-height: 40px;
+    color: #000;
+    font-weight: 600;
+}
+
+.login_forgotPasswordContainer {
+    text-align: center;
+}
+
+.login_companyDetails {
+    text-align: center;
+}
+
+.login_companyDetails p,
+.login_companyDetails a {
+    margin: 0;
+    text-decoration: none;
+    color: #858484;
+    font-size: 14px;
+    line-height: 24px;
+}

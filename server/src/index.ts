@@ -6,6 +6,8 @@ import { NewGraphQLServer } from './protocols/graphql'
 import { NewRestServer } from './protocols/rest'
 import { ProductsStore, SessionsStore, UsersStore } from './stores'
 import pg from 'pg'
+import cors from 'cors';
+
 
 const config = Config()
 const knex = Knex({
@@ -28,6 +30,9 @@ const stores = {
 const app = Express()
 
 app.disable('x-powered-by')
+
+// Enable CORS for all routes
+app.use(cors({ origin: 'http://localhost:3000' }));
 
 async function main() {
     console.info('Server starting...')

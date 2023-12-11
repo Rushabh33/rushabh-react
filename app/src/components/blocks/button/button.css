@@ -1,0 +1,32 @@
+button {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.primary,
+.secondary
+{
+    width: 100%;
+    max-width: 354px;
+    height: 40px;
+    border-radius: 2px;
+    color: #FFF;
+}
+
+.primary {
+    background: #9A48D6;
+}
+
+.secondary {
+    background: #af8ac9;
+}
+
+.tertiary {
+    color: #000;
+    background-color: transparent;
+    padding: 0;
+}
+.tertiary:hover {
+    border-color: #FFF;
+}

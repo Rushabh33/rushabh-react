@@ -40,6 +40,7 @@ export function Register(router: Router, stores: Stores) {
         '/authenticate',
         asyncHandler(async (req, res) => {
             const { email, password } = req.body
+            console.log('req.body: ', req.body);
             if (!email) {
                 throw new BadInputError('email is missing from request body.')
             }

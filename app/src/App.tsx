@@ -1,31 +1,33 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useContext } from 'react'
+import { useNavigate } from 'react-router-dom';
+import AuthContext, { initalValue } from './context/AuthContext';
+import { removeCredentialsFromSession } from './components/login/login.utils';
+import { ROUTES } from './router/routes.constants';
+import Button from './components/blocks/button/Button';
+import "./App.css"
 
-function App() {
-    const [count, setCount] = useState(0)
+export default function App() {
+    const  {authState, setAuthState} = useContext(AuthContext)
+    const navigate = useNavigate()
+    const handleLogout = () => {
+        setAuthState(initalValue.authState)
+        removeCredentialsFromSession(authState)
+    }
+    
+    const handleLogin = () => {
+        navigate(ROUTES.LOGIN)
+    }
 
     return (
-        <>
-            <div>
-                <a href="https://vitejs.dev" target="_blank">
-                    <img src={viteLogo} className="logo" alt="Vite logo" />
-                </a>
-                <a href="https://react.dev" target="_blank">
-                    <img src={reactLogo} className="logo react" alt="React logo" />
-                </a>
+        <div className='home_page'>
+            <div className='home_container'>
+                <Button className='primary' onClick={handleLogin}>
+                    Log in
+                </Button>
+                {authState.isAuthenticated && <Button className='secondary' onClick={handleLogout}>
+                    Log Out
+                </Button>}
             </div>
-            <h1>Vite + React</h1>
-            <div className="card">
-                <button onClick={() => setCount(count => count + 1)}>count is {count}</button>
-                <p>
-                    Edit <code>src/App.tsx</code> and save to test HMR
-                </p>
-            </div>
-            <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
-        </>
+        </div>
     )
 }
-
-export default App
